@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, {useState} from "react";
 import MovieCard from "./component/MovieCard";
 import "./App.css";
 //42b602aa;
@@ -17,18 +17,20 @@ const App = () => {
   return (
     <div className="container">
       <div className="searchContainer">
-        <input type="text" value={search} onChange={(e)=>{
+        <input type="text" className="searchBar" value={search} onChange={(e)=>{
           setSearch(e.target.value);
         }}/>
-        <button onClick={()=>{
+        <button className="searchBtn" onClick={()=>{
           getMovie(search);
         }}>Search</button>
       </div>
       <div className="result">
         {
+
           movie?.length > 0 ? (
-            <div className="container">
-              {movie.map((movie,index) => (
+            <div className="Maincontainer">
+              {
+                movie.map((movie,index) => (
                 <MovieCard key={index} movie={movie} />
               ))}
             </div>
